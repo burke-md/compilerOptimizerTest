@@ -2,14 +2,13 @@
 
 pragma solidity ^0.8.14;
 
-contract Contract {
-    constructor(){}
-    
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-//---------------------------------ACCESS-----------------------------------\\
-//---------------------------------------------------------------------------\\
+contract Contract is ERC20, Ownable {
+    constructor() ERC20("Token", "TKN"){}
 
-//--------------------------------OVERRIDES----------------------------------\\
-//---------------------------------------------------------------------------\\
-
+    function mint(address to, uint256 amout) public onlyOwner {
+        _mint(to, amount);
+    }
 }

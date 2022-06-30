@@ -1,4 +1,5 @@
-# solProjTemplate
+# Compiler optimizer test
 
 
-This repo is a simple template for spinning up small projects quickly. 
+This repo will experiement with deployment and transaction costs of a ERC20 
+token based on compiler settings.

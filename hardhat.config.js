@@ -12,7 +12,15 @@
  const mnemonic = process.env.MNEMONIC;
  
    module.exports = {
-    solidity: "0.8.14",
+    solidity: {
+        version: "0.8.14",
+        settings: {
+            optimizer: {
+                enabled: true,
+                runs: 0,
+            },
+        },
+    },
     /*
     networks: {
       rinkeby: {

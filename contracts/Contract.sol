@@ -7,8 +7,17 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Contract is ERC20, Ownable {
     constructor() ERC20("Token", "TKN"){}
+    uint256 private counter = 0;
 
-    function mint(address to, uint256 amout) public onlyOwner {
-        _mint(to, amount);
+    mapping(address => uint256) addressTotal;
+
+    function mint() external onlyOwner {
+        counter++;
+        addressTotal[msg.sender]++;
+        _mint(msg.sender, 1);
+    }
+
+    function getNumTokens() external view returns(uint256 numTokens) {
+        return counter;
     }
 }
